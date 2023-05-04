@@ -6,5 +6,7 @@ use Illuminate\Http\Request;
 
 class ProdutosController extends Controller
 {
-    //
+    public function index(){
+        return view('app.produto',['session' => $_SESSION]);
+    }
 }

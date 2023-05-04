@@ -8,12 +8,15 @@
             <a href="{{route('app.fornecedores.listar')}}" class="btn btn-outline-dark"> Consulta </a>
         </div>
     </div>
-    <div class="row mt-3">
-        <div class="col-sm">
-            <form action="{{ route('app.fornecedores.listar') }}" class="row row-cols-lg-auto g-3 align-items-center justify-content-center" method="post">
+    <div class="row mt-3 justify-content-center">
+        <div class="col-sm-6">
+            <form action="{{ route('app.fornecedores.novo') }}" method="post">
                 @csrf
-                <div class="col-12">
-                    <label for="inputName" class="visually-hidden">Nome</label>
+                <div class="col-12 mb-3">
+                    <h2 class="h3">Utilize os campos abaixo para adicionar um novo fornecedor</h2>
+                </div>
+                <div class="col-12 mb-3">
+                    <label for="inputName" >Nome</label>
                     <input type="text" name="name" id="inputName"
                         class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" placeholder="Nome do Fornecedor"
                         value="{{ old('name') }}">
@@ -23,8 +26,8 @@
                         </div>
                     @endif
                 </div>
-                <div class="col-12">
-                    <label for="inputEmail" class="visually-hidden">Email</label>
+                <div class="col-12 mb-3">
+                    <label for="inputEmail" >Email</label>
                     <input type="email" name="email" id="inputEmail"
                         class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" placeholder="Email do Fornecedor"
                         value="{{ old('email') }}">
@@ -34,8 +37,8 @@
                         </div>
                     @endif
                 </div>
-                <div class="col-12">
-                    <label for="inputTelefone" class="visually-hidden">Telefone</label>
+                <div class="col-12 mb-3">
+                    <label for="inputTelefone" >Telefone</label>
                     <input type="tel" name="phone" id="inputTelefone"
                         class="form-control {{ $errors->has('phone') ? 'is-invalid' : '' }}" placeholder="Telefone do Fornecedor"
                         value="{{ old('phone') }}">
@@ -45,8 +48,19 @@
                         </div>
                     @endif
                 </div>
-                <div class="col-12">
-                    <button type="submit" class="btn btn-outline-primary"> <i class="bi bi-search"></i> Buscar</button>
+                <div class="col-12 mb-3">
+                    <label for="inputEndereco" >Endereço</label>
+                    <input type="text" name="address" id="inputEndereco"
+                        class="form-control {{ $errors->has('address') ? 'is-invalid' : '' }}" placeholder="Endereço do Fornecedor"
+                        value="{{ old('address') }}">
+                    @if ($errors->has('address'))
+                        <div class="invalid-feedback">
+                            {{ $errors->first('address') }}
+                        </div>
+                    @endif
+                </div>
+                <div class="col-12 mb-3 d-grid">
+                    <button type="submit" class="btn btn-outline-primary"> <i class="bi bi-"></i> Adicionar fornecedor</button>
                   </div>
             </form>
         </div>

@@ -15,3 +15,6 @@
     width: 1rem;
     max-height: 2rem;
 }
+.form-floating > label{
+    padding: .25rem .75rem;
+}
