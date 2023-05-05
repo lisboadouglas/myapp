@@ -9,7 +9,7 @@ use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\FornecedoresController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Obrigado;
-use App\Http\Controllers\ProdutosController;
+use App\Http\Controllers\ProdutoController;
 use App\Http\Middleware\LogAccessMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -49,7 +49,7 @@ Route::middleware('authenticate:default,visitor')->prefix('/app')->group(functio
     Route::get('/fornecedores/editar/{id}', [FornecedoresController::class, 'edit'])->name('app.fornecedores.editar');
     Route::get('/fornecedores/excluir/{id}', [FornecedoresController::class, 'delete'])->name('app.fornecedores.excluir');
 
-    Route::get('/produtos', [ProdutosController::class, 'index'])->name('app.produtos');
+    Route::resource('produto', ProdutoController::class);
     Route::get('/sair', [LoginController::class, 'logout'])->name('app.sair');
 });
 

@@ -59,7 +59,7 @@
                                                 class="ms-1 d-none d-sm-inline">Fornecedores</span> </a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('app.produtos') }}" class="nav-link px-0">
+                                        <a href="{{route('produto.index')}}" class="nav-link px-0">
                                             <i class="bi bi-box2-fill"></i> <span
                                                 class="ms-1 d-none d-sm-inline">Produtos</span>
                                         </a>
