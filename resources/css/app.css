@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 .nav-link{
     color: #fff !important;
 }
@@ -17,4 +20,7 @@
 }
 .form-floating > label{
     padding: .25rem .75rem;
+}
+.hidden{
+    /*display: none;*/
 }

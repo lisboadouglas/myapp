@@ -11,6 +11,7 @@
     <div class="row mt-3 justify-content-center">
         <div class="col-sm-6">
             <form action="{{ route('app.fornecedores.novo') }}" method="post">
+                <input type="hidden" name="id" value="{{ $fornecedor->id }}">
                 @csrf
                 <div class="col-12 mb-3">
                     <h2 class="h3">Utilize os campos abaixo para adicionar um novo fornecedor</h2>
@@ -19,7 +20,7 @@
                     <label for="inputName" >Nome</label>
                     <input type="text" name="name" id="inputName"
                         class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" placeholder="Nome do Fornecedor"
-                        value="{{ old('name') }}">
+                        value="{{ $fornecedor->name ?? old('name') }}">
                     @if ($errors->has('name'))
                         <div class="invalid-feedback">
                             {{ $errors->first('name') }}
@@ -30,7 +31,7 @@
                     <label for="inputEmail" >Email</label>
                     <input type="email" name="email" id="inputEmail"
                         class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" placeholder="Email do Fornecedor"
-                        value="{{ old('email') }}">
+                        value="{{ $fornecedor->email ?? old('email') }}">
                     @if ($errors->has('email'))
                         <div class="invalid-feedback">
                             {{ $errors->first('email') }}
@@ -41,7 +42,7 @@
                     <label for="inputTelefone" >Telefone</label>
                     <input type="tel" name="phone" id="inputTelefone"
                         class="form-control {{ $errors->has('phone') ? 'is-invalid' : '' }}" placeholder="Telefone do Fornecedor"
-                        value="{{ old('phone') }}">
+                        value="{{ $fornecedor->phone ?? old('phone') }}">
                     @if ($errors->has('phone'))
                         <div class="invalid-feedback">
                             {{ $errors->first('phone') }}
@@ -52,7 +53,7 @@
                     <label for="inputEndereco" >Endereço</label>
                     <input type="text" name="address" id="inputEndereco"
                         class="form-control {{ $errors->has('address') ? 'is-invalid' : '' }}" placeholder="Endereço do Fornecedor"
-                        value="{{ old('address') }}">
+                        value="{{ $fornecedor->address ?? old('address') }}">
                     @if ($errors->has('address'))
                         <div class="invalid-feedback">
                             {{ $errors->first('address') }}

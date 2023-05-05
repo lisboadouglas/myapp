@@ -20,6 +20,7 @@ class Fornecedores extends Model
         'name',
         'email',
         'address',
+        'phone'
     ];
     
 

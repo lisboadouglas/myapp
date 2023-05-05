@@ -40,9 +40,15 @@ Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
 Route::middleware('authenticate:default,visitor')->prefix('/app')->group(function(){
     Route::get('/home', [HomeController::class, 'index'])->name('app.home');
     Route::get('/clientes', [ClientesController::class, 'index'])->name('app.clientes');
+
     Route::get('/fornecedores', [FornecedoresController::class, 'index'])->name('app.fornecedores');
     Route::get('/fornecedores/listar', [FornecedoresController::class, 'list'])->name('app.fornecedores.listar');
+    Route::post('/fornecedores/listar', [FornecedoresController::class, 'list'])->name('app.fornecedores.listar');
     Route::get('fornecedores/novo', [FornecedoresController::class, 'new'])->name('app.fornecedores.novo');
+    Route::post('fornecedores/novo', [FornecedoresController::class, 'new'])->name('app.fornecedores.novo');
+    Route::get('/fornecedores/editar/{id}', [FornecedoresController::class, 'edit'])->name('app.fornecedores.editar');
+    Route::get('/fornecedores/excluir/{id}', [FornecedoresController::class, 'delete'])->name('app.fornecedores.excluir');
+
     Route::get('/produtos', [ProdutosController::class, 'index'])->name('app.produtos');
     Route::get('/sair', [LoginController::class, 'logout'])->name('app.sair');
 });

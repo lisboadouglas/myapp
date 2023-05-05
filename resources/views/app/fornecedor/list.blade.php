@@ -51,4 +51,38 @@
             </form>
         </div>
     </div>
+    <div class="row mt-3">
+        <div class="col-sm-12 table-responsive">
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                        <th>Endereço</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($fornecedores as $fornecedor)
+                        <tr>
+                            <td>{{$fornecedor->name }}</td>
+                            <td>{{$fornecedor->email }}</td>
+                            <td>{{$fornecedor->phone }}</td>
+                            <td>{{$fornecedor->address }}</td>
+                            <td>
+                                <a href="{{route('app.fornecedores.editar', $fornecedor->id)}}" class="btn btn-xs btn-outline-info"> <i class="bi bi-pencil-square"></i> </a>
+                                <a href="{{ route('app.fornecedores.excluir', $fornecedor->id) }}" class="btn btn-xs btn-outline-danger"> <i class="bi bi-trash-fill"></i> </a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row mt-3 justify-content-center">
+        <div class="col-sm">
+            {{ $fornecedores->appends($request)->links() }}
+        </div>
+    </div>
 @endsection
